@@ -3,9 +3,12 @@ import { env } from "./env";
 
 export const config: Knex.Config = {
   client: env.DATABASE_CLIENT,
-  connection: {
-    filename: env.DATABASE_FILENAME,
-  },
+  connection:
+    env.DATABASE_CLIENT === "sqlite3"
+      ? {
+          filename: env.DATABASE_FILENAME,
+        }
+      : env.DATABASE_CLIENT,
   useNullAsDefault: true,
   migrations: {
     extension: "ts",
