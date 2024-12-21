@@ -1,9 +1,15 @@
 import { execSync } from "node:child_process";
-import { test, beforeAll, afterAll, describe, expect } from "vitest";
+import {
+  test,
+  beforeAll,
+  afterAll,
+  beforeEach,
+  describe,
+  expect,
+} from "vitest";
 import request from "supertest";
 
 import { app } from "../src/app";
-import { beforeEach } from "node:test";
 
 // Enunciado -> Opereação -> Validação
 // E2E -> Teste de ponta a ponta -> Cada teste é realizado como se os outros testes não existissem
